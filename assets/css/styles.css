@@ -11,6 +11,11 @@ html {
   font-size: 62.5%;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 1.6rem;
   font-family: 'Poppins', sans-serif;
@@ -52,16 +57,27 @@ a {
 }
 
 /* ======== HEADER ======== */
-.header {
-  position: relative;
+.fixed-header {
   background: #e6f0ff;
-  height: 100vh;
+  padding-top: 34px;
+  position: sticky;
+  top: -34px;
+  z-index: 1;
+}
+
+.hero-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #e6f0ff;
+  height: calc(100vh - 98px);
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  padding-top: 38px;
+  padding: 12px 0;
 }
 
 .navbar ul {
@@ -96,22 +112,18 @@ a {
   border-radius: 8px;
 }
 
-.hero {
-  margin-top: 130px;
-}
-
-.hero .info {
+.hero-wrap .info {
   width: 51%;
 }
 
-.hero .sub-title {
+.hero-wrap .sub-title {
   color: #687690;
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 0.018rem;
 }
 
-.hero .title {
+.hero-wrap .title {
   margin-top: 8px;
   color: #000336;
   font-size: 6.2rem;
@@ -119,7 +131,7 @@ a {
   line-height: 7.6rem;
 }
 
-.hero .desc {
+.hero-wrap .desc {
   margin-top: 30px;
   color: #5a6473;
   font-size: 1.8rem;
@@ -166,6 +178,18 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-top: 70px;
+}
+
+.clients .images a {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding: 0 42px;
+  border-radius: 12px;
+}
+
+.clients .images a:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* ======== GUIDES ======== */
@@ -595,7 +619,6 @@ a {
 .footer .social {
   display: flex;
   margin-top: 40px;
-  gap: 12px;
 }
 
 .footer .social-link {
@@ -605,11 +628,16 @@ a {
   width: 28px;
   height: 28px;
   border-radius: 3px;
+  background: #f9f9f9;
 }
 
 .footer .social-link:hover {
   cursor: pointer;
   background: #ebebeb;
+}
+
+.footer .social-link + .social-link {
+  margin-left: 16px;
 }
 
 .footer .row-bottom {
